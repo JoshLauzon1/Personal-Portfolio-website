@@ -549,10 +549,23 @@ section {
 }
 
 .experience-sub-title {
-  color: rgb(85, 85, 85);
-  font-weight: 600;
+  color: var(--text-primary);
+  font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.experience-sub-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
 }
 
 .experience-details-container {
@@ -573,9 +586,30 @@ article {
   display: flex;
   width: calc(50% - 1.25rem);
   justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  align-items: center;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 1rem;
+  background: var(--background-primary);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+}
+
+article:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  border-color: var(--primary-color);
+}
+
+article h3 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+article > div {
+  flex: 1;
 }
 
 article .icon {
@@ -839,10 +873,13 @@ footer p {
 
 .skill-progress {
   width: 100%;
-  height: 10px;
-  background-color: #f0f0f0;
-  border-radius: 5px;
-  margin-top: 0.5rem;
+  height: 12px;
+  background-color: var(--background-secondary);
+  border-radius: 6px;
+  margin-top: 0.8rem;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .progress-bar {
