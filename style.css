@@ -117,6 +117,18 @@ nav,
   display: flex;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hamburger-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 nav {
   justify-content: space-around;
   align-items: center;
@@ -187,6 +199,70 @@ a:hover::after {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  background: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-medium);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.theme-toggle.dark .theme-icon {
+  transform: rotate(180deg);
+}
+
+.mobile-theme-toggle {
+  width: 40px;
+  height: 40px;
+}
+
+.mobile-theme-toggle .theme-icon {
+  font-size: 1rem;
+}
+
+/* Glowing effect for theme toggle */
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.theme-toggle:hover::before {
+  opacity: 0.1;
 }
 
 .hamburger-icon {
