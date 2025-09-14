@@ -807,6 +807,73 @@ article .icon {
   height: 2.5rem;
 }
 
+/* LOADING ANIMATIONS */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.loading-animation {
+  animation: pulse 2s infinite;
+}
+
+.slide-in-up {
+  animation: slideInUp 0.8s ease forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.6s ease forwards;
+}
+
+/* Page load animation */
+body {
+  animation: fadeInUp 0.8s ease;
+}
+
+/* Section animations */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced transitions for all interactive elements */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 /* FOOTER SECTION */
 
 footer {
@@ -923,8 +990,14 @@ footer p {
     margin: 2rem auto;
     padding: 2rem;
     border-radius: 1rem;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background: var(--background-primary);
+    box-shadow: var(--shadow-medium);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.contact-form:hover {
+    box-shadow: var(--shadow-large);
 }
 
 .form-group {
@@ -935,9 +1008,20 @@ footer p {
 .form-group textarea {
     width: 100%;
     padding: 0.8rem;
-    border: 1px solid rgb(163, 163, 163);
+    border: 1px solid var(--border-color);
     border-radius: 0.5rem;
-    font-family: "Poppins", sans-serif;
+    font-family: "Inter", "Poppins", sans-serif;
+    background: var(--background-primary);
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+    transform: translateY(-1px);
 }
 
 .form-group textarea {
